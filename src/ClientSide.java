@@ -20,7 +20,10 @@ public class ClientSide {
         System.out.println("Successfully started the process");
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("\n\n1 to Send Message\n3 to refresh Chat\nE to Exit\n");
+        System.out.println("\n\n1 to Send Message");
+        System.out.println("2 to refresh ALL Chat history");
+        System.out.println("3 to refresh Personal Chat history");
+        System.out.println("E to Exit\n");
 
         while (true) {
             System.out.println();
