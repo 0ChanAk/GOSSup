@@ -38,4 +38,12 @@ public class ClientDetails {
         allMACs.addAll(sentMessages.keySet());
         return allMACs;
     }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("MAC = ").append(MAC_id).append("\n");
+        sb.append("SENT = ").append(sentMessages).append("\n");
+        sb.append("RECEIVED = ").append(receivedMessages).append("\n");
+        return sb.toString();
+    }
 }

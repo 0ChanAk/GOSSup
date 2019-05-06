@@ -1,10 +1,8 @@
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.NetworkInterface;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -58,13 +56,15 @@ public class Server extends Thread {
 
     void sendMessage() throws Exception {
         String destMAC = getMAC_id(inputStream.readUTF());
-        String timeStamp = inputStream.readUTF();
+        String timeStamp = ServerSide.DATE_FORMAT.format(new Date());
         String message = inputStream.readUTF();
 
         clientDetails.sendMessage(destMAC, timeStamp, message);
 
         DATABASE.putIfAbsent(destMAC, new ClientDetails(destMAC));
         DATABASE.get(destMAC).receiveMessage(MAC_id, timeStamp, message);
+
+        System.out.println("\n" + DATABASE + "\n");
     }
 
     void refreshPersonalChatHistory() throws Exception {
@@ -102,6 +102,8 @@ public class Server extends Thread {
     }
 
     final static String getMAC_id(String ip) throws Exception {
+        if (ip.contains("/")) ip = ip.substring(ip.indexOf("/") + 1);
+        if (ip.contains(":")) ip = ip.substring(0, ip.indexOf(":"));
         return ip;
     }
 }

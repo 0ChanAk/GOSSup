@@ -3,8 +3,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class ClientSide {
     Socket serverSocket;
@@ -17,8 +15,6 @@ public class ClientSide {
         inputStream = new DataInputStream(serverSocket.getInputStream());
         outputStream = new DataOutputStream(serverSocket.getOutputStream());
     }
-
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 
     void startProccess() throws Exception {
         System.out.println("Successfully started the process");
@@ -36,9 +32,6 @@ public class ClientSide {
                     outputStream.writeUTF("1");
                     System.out.print("IP: ");
                     outputStream.writeUTF(br.readLine());
-
-                    Date currTime = new Date();
-                    outputStream.writeUTF(dateFormat.format(currTime));
 
                     System.out.println("Message: ");
                     outputStream.writeUTF(br.readLine());
