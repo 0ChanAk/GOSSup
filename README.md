@@ -21,8 +21,8 @@ Authentication is ensuring the person sending data is who they say they are.
 ### 3. Instructions
 1. Navigate to: `<root-to-directory>/GOSSup`
 2. Compile the program: `javac *.java`
-3. Start the server: `java Server 7777`
-4. Start the client: `java Client localhost 7777`
+3. Start the server: `java Server`
+4. Start the client: `java Client localhost`
 5. If IP for the server/client do not match connection will fail
 
 
