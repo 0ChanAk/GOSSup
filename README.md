@@ -5,17 +5,17 @@ The GOSSup is a project that utilizes features only included in java 8, so pleas
 #### 1. Purpose
 This code repository implements a secure instant message system between a client and server program.
 
-
+#### 2. features:
 ##### 2.1 Confidentiality
 Confidentiality is ensuring that information is secure during transfer.
 
-###### 2.1.1 Encryption and Decryption
+###### 2.2 Encryption and Decryption
 This feature is going to be available soon.
 
-##### 2.2 Integrity
+##### 2.3 Integrity
 Integrity is ensuring data has not been tampered with during transfer.
 
-##### 2.3 Authentication
+##### 2.4 Authentication
 Authentication is ensuring the person sending data is who they say they are.
 
 ### 3. Instructions
